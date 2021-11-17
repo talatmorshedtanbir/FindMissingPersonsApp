@@ -14,13 +14,13 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zrq$b_pc!&(61l+(opu3)5tq&fxlrt8scw=7#cp_6xujlb+lq#'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'MissingPerson.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,14 +132,15 @@ SENDSMS_BACKEND = 'sendsms.backends.console.SmsBackend'
 PHONE_VERIFICATION = {
     'BACKEND': 'phone_verify.backends.twilio.TwilioBackend',
     'OPTIONS': {
-        'SID': 'fake',
-        'SECRET': 'fake',
+        'SID': '',
+        'SECRET': '',
         'FROM': '+14755292729',
-        'SANDBOX_TOKEN':'123456',
+        'SANDBOX_TOKEN': '123456',
     },
     'TOKEN_LENGTH': 6,
     'MESSAGE': 'Welcome to {app}! Please use security code {security_code} to proceed.',
     'APP_NAME': 'Phone Verify',
     'SECURITY_CODE_EXPIRATION_TIME': 3600,  # In seconds only
-    'VERIFY_SECURITY_CODE_ONLY_ONCE': False,  # If False, then a security code can be used multiple times for verification
+    # If False, then a security code can be used multiple times for verification
+    'VERIFY_SECURITY_CODE_ONLY_ONCE': False,
 }
