@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'res.css' %}">
+ <style>
+ table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  caption {
+      color:black;
+      font-weight: bold;
+      text-align: center;
+      font-size: xx-large;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align: center;">A lost person was found in this video. Details is sent to police.</h1>
+</div>
+{% endblock %}
+
+
+

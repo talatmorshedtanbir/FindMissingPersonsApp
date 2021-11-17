@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+	Enter mobile number:<br>
+	<!--input type="text" name="mobile"-->
+	{{form.as_p}}<br>
+	<input type="submit" name='send_otp' value="Send OTP"><br><br>
+</form>
+<form method="POST">{% csrf_token %}
+	Enter OTP:<br>
+	<!--input type="text" name="mobile"-->
+	{{otp_form.as_p}}<br>
+	<input type="submit" name='enter_otp' value="Enter OTP">
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'res.css' %}">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.contair {
+  padding: 2px 16px;
+}
+</style>
+ {% endblock %}
+
+{% block content %}
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Missing Persons</h3>
+  </div>
+<div class="container">
+    {% for person in data %}
+    <div class="card">
+        <img src="../../media/{{person.child_pic}}" alt="../../media/Avatar.png" style="width:100%">
+        <div class="contair">
+          <h4><b>{{person.name}}</b></h4> 
+          <p><b>{{person.persontype}}</b></p>
+          <p><b>{{person.contact}}</b></p>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
+
+
+

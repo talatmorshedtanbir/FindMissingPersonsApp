@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block headblock %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'res.css' %}">
+ <style>
+    table {
+       border-collapse: collapse;
+       width: 100%;
+     }
+     
+     th, td {
+       text-align: left;
+       padding: 8px;
+     }
+     
+     tr:nth-child(even){background-color: #f2f2f2}
+     
+     th {
+       background-color: #4CAF50;
+       color: white;
+     }
+     caption {
+      color:black;
+      font-weight: bold;
+      text-align: center;
+      font-size: xx-large;
+  }
+   </style>
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+    {% if found == "Found" %}
+    <table border="1" align="center">
+        <caption>Records of found person</caption>
+        <tr>
+            <th> Name</th>
+            <th> Contact Number</th>
+            <th> Location Found</th>
+            <th> Contact of location found</th>
+        </tr>
+
+            <tr>
+                <td>
+                    {{text.0}}
+                </td>
+                <td>
+                    {{text.1}}
+                </td>
+                <td>
+                    {{text.3}}
+                </td>
+                <td>
+                    {{text.2}}
+                </td>
+            </tr>
+    </table>
+    {% endif %}
+
+    {% if found == "Not Found" %}
+
+        <h2 style="text-align: center">Person not found! Wait till someone finds out the person. </h2>
+
+    {% endif %}
+
+</div>
+{% endblock %}
+
+
